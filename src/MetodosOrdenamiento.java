@@ -173,7 +173,7 @@ public class MetodosOrdenamiento {
             int actual = arreglo[j];
 
             int i = j - 1;
-            for (; i >= 0 && arreglo[i] > actual; j--) {
+            for (; i >= 0 && arreglo[i] > actual; i--) {
                 arreglo[i + 1] = arreglo[i];
             }
             arreglo[i + 1] = actual;
