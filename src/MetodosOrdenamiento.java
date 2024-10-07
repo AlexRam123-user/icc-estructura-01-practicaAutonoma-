@@ -3,11 +3,9 @@ import java.util.Arrays;
 public class MetodosOrdenamiento {
 
     // Método de burbuja tradicional con errores
-    // Error encontrado:
-    /* 
-     * 
-     * 
-     */
+    // Error encontrado: El metodo retorna un arreglo vacio (return new int[] {})
+    // en lugar de arreglo ordenado
+    // Solucion: cambiar el return new int por un "return arreglo:"
     public int[] burbujaTradicional(int[] arregloOriginal) {
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
 
@@ -28,8 +26,6 @@ public class MetodosOrdenamiento {
     // Método de burbuja tradicional con errores
     // Error encontrado: El simbolo '<' en el if es incorrecto
     // Solucion: cambiar el simbolo por '>'
-     
-
     public int[] burbujaTradicionalSegundo(int[] arregloOriginal) {
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
 
@@ -182,21 +178,23 @@ public class MetodosOrdenamiento {
     }
 
     // Método de inserción con errores
-    // Error encontrado:
+    // Error encontrado: al inicio deberia ser i = j-1. Las condiciones del while estan mal
+    // i dentro del while deberia restar en vez de sumar, y el return deber ser con arreglo
+    // Solucion: reemplazar los signos y corregir las condiciones
     public int[] insercionTercero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
         for (int j = 1; j < arreglo.length; j++) {
             int key = arreglo[j];
-            int i = j;
+            int i = j - 1;
 
-            while (i > 0 && arreglo[i] < key) {
+            while (i >= 0 && arreglo[i] > key) {
                 arreglo[i + 1] = arreglo[i];
-                i++;
+                i--;
             }
             arreglo[i + 1] = key;
         }
-        return new int[] { 15, 34, 1, 2, 5, 6, 7, 10 };
+        return arreglo;
     }
 
 }
